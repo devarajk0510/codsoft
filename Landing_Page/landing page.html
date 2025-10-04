@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coding Wizard</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      line-height: 1.6;
+      background: #f4f4f4;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: #1a1a1a;
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 50px;
+      z-index: 1000;
+    }
+
+    nav h1 {
+      font-size: 26px;
+      color: #ffcc00;
+      font-weight: bold;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+    }
+
+    nav ul li {
+      margin-left: 20px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #ffcc00;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 28px;
+      cursor: pointer;
+    }
+
+    .hero {
+      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+      url('https://source.unsplash.com/random/1600x900/?technology,coding,programming') no-repeat center center/cover;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: #fff;
+      padding: 0 20px;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      margin-bottom: 20px;
+      color: #ffcc00;
+    }
+
+    .hero p {
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+    }
+
+    .hero button {
+      padding: 12px 30px;
+      background: #ffcc00;
+      border: none;
+      border-radius: 25px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .hero button:hover {
+      background: #e6b800;
+    }
+
+    section {
+      padding: 80px 50px;
+      text-align: center;
+    }
+
+    section h2 {
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .feature-box {
+      background: #fff;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transition: 0.3s;
+    }
+
+    .feature-box:hover {
+      transform: translateY(-10px);
+    }
+
+    .feature-box h3 {
+      margin-bottom: 15px;
+      color: #ffcc00;
+    }
+
+    .courses {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .course-card {
+      background: #fff;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: 0.3s;
+    }
+
+    .course-card:hover {
+      transform: scale(1.05);
+    }
+
+    .course-card h3 {
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    .about {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .about img {
+      width: 350px;
+      border-radius: 20px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    .about-text {
+      max-width: 500px;
+      text-align: left;
+    }
+
+    .about-text h2 {
+      margin-bottom: 15px;
+    }
+
+    .contact form {
+      max-width: 500px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .contact input, .contact textarea {
+      padding: 15px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      outline: none;
+    }
+
+    .contact button {
+      padding: 12px;
+      border: none;
+      background: #ffcc00;
+      border-radius: 25px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .contact button:hover {
+      background: #e6b800;
+    }
+
+    footer {
+      background: #1a1a1a;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+    }
+
+    @media(max-width: 768px) {
+      nav ul {
+        display: none;
+        flex-direction: column;
+        background: #222;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 200px;
+      }
+
+      nav ul.show {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: block;
+        color: #fff;
+      }
+
+      .about {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .about-text {
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <h1>Coding Wizard</h1>
+    <span class="menu-toggle">&#9776;</span>
+    <ul>
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#features">Features</a></li>
+      <li><a href="#courses">Courses</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero" id="hero">
+    <div>
+      <h1>Master Coding with Coding Wizard</h1>
+      <p>Learn HTML, CSS, JavaScript, Python, Java, C, C++, MySQL, Data Science & More</p>
+      <button onclick="document.getElementById('courses').scrollIntoView({behavior:'smooth'});">Explore Courses</button>
+    </div>
+  </section>
+
+  <section id="features">
+    <h2>Why Choose Coding Wizard?</h2>
+    <div class="features">
+      <div class="feature-box">
+        <h3>Step-by-Step Learning</h3>
+        <p>Structured courses to take you from beginner to advanced in coding.</p>
+      </div>
+      <div class="feature-box">
+        <h3>Real-World Projects</h3>
+        <p>Build websites, apps, and software while you learn.</p>
+      </div>
+      <div class="feature-box">
+        <h3>Community Support</h3>
+        <p>Get guidance from mentors and connect with fellow learners.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="courses">
+    <h2>Our Courses</h2>
+    <div class="courses">
+      <div class="course-card"><h3>HTML</h3><p>Learn the structure of web pages.</p></div>
+      <div class="course-card"><h3>CSS</h3><p>Style and design stunning websites.</p></div>
+      <div class="course-card"><h3>JavaScript</h3><p>Make your sites interactive.</p></div>
+      <div class="course-card"><h3>Python</h3><p>Learn the most beginner-friendly language.</p></div>
+
+      <div class="course-card"><h3>Java</h3><p>Strong OOP foundations for development.</p></div>
+      <div class="course-card"><h3>C Programming</h3><p>Master the basics of programming.</p></div>
+      <div class="course-card"><h3>C++</h3><p>Build efficient and powerful applications.</p></div>
+      <div class="course-card"><h3>MySQL & Databases</h3><p>Understand data storage and management.</p></div>
+
+      <div class="course-card"><h3>Data Science</h3><p>Learn analytics, ML & AI basics.</p></div>
+      <div class="course-card"><h3>Deep Learning</h3><p>Dive into neural networks and AI models.</p></div>
+      <div class="course-card"><h3>Neural Networks</h3><p>Understand the core of modern AI.</p></div>
+      <div class="course-card"><h3>AWS</h3><p>Master cloud computing with Amazon Web Services.</p></div>
+
+      <div class="course-card"><h3>Data Structure</h3><p>Learn how to organize and manage data efficiently.</p></div>
+      <div class="course-card"><h3>PHP</h3><p>Learn backend development with PHP.</p></div>
+      <div class="course-card"><h3>Laravel</h3><p>Build modern apps using the Laravel framework.</p></div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="about">
+      <img src="code wizard.jpg" alt="About Coding Wizard">
+      <div class="about-text">
+        <h2>About Coding Wizard</h2>
+        <p>At Coding Wizard, we believe coding is a superpower. Our mission is to empower students, developers, and enthusiasts with the right skills to create websites, apps, and intelligent systems. With courses covering everything from front-end to AI, you’ll be ready to conquer the tech world.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2>Contact Us</h2>
+    <form>
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea placeholder="Your Message" rows="5" required></textarea>
+      <button type="submit">Send Message</button>
+      <h1><p><b>contact:</b></p></h1>
+      <p>phone num :9380415883</p>
+      <p>GMail:devarajkakkali0510@gmail.com</p>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Coding Wizard. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    const menuToggle = document.querySelector(".menu-toggle");
+    const navLinks = document.querySelector("nav ul");
+
+    menuToggle.addEventListener("click", () => {
+      navLinks.classList.toggle("show");
+    });
+  </script>
+</body>
+</html>

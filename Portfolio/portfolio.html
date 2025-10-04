@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Portfolio</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      line-height: 1.6;
+      background: #f9f9f9;
+      color: #333;
+    }
+
+    header {
+      background: #333;
+      color: #fff;
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+      color: #00c3ff;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      opacity: 0.8;
+    }
+
+    section {
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    section h2 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 30px;
+      color: #00c3ff;
+    }
+
+    .about {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .about img {
+      width: 250px;
+      border-radius: 50%;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    .about-text {
+      max-width: 500px;
+      text-align: center;
+    }
+
+    .skills-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 15px;
+      text-align: center;
+    }
+
+    .skill {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .skill:hover {
+      background: #00c3ff;
+      color: #fff;
+      transform: translateY(-5px);
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .project-card {
+      background: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transition: 0.3s;
+    }
+
+    .project-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .project-card h3 {
+      padding: 15px;
+      color: #00c3ff;
+    }
+
+    .project-card p {
+      padding: 0 15px 20px;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .resume {
+      text-align: center;
+    }
+
+    .resume a {
+      display: inline-block;
+      padding: 12px 25px;
+      background: #00c3ff;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 25px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .resume a:hover {
+      background: #0099cc;
+    }
+
+    .contact {
+      text-align: center;
+    }
+
+    .contact p {
+      margin: 10px 0;
+    }
+
+    footer {
+      background: #333;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+
+    @media(max-width: 768px) {
+      .about {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Devaraj Sudhir Kakkali</h1>
+    <p>Fullstack Developer | Web Developer | Designer | Creative Thinker</p>
+  </header>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <div class="about">
+      <img src="photo.jpg" alt="Profile Picture">
+      <div class="about-text">
+        <p>Hello! I'm Dev, a passionate Fullstack & web developer with experience in building responsive and modern websites. I enjoy turning ideas into reality through code and creating designs that users love to interact with.
+          Beyound the Web Development, i work with software solutions that enhance the effeciency and scalability.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="skills-list">
+      <div class="skill">HTML</div>
+      <div class="skill">CSS</div>
+      <div class="skill">JavaScript</div>
+      <div class="skill">python</div>
+      <div class="skill">C</div>
+      <div class="skill">SQL</div>
+      <div class="skill">Basic of C++</div>
+      <div class="skill">Arduino</div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="projects">
+      <div class="project-card">
+        <img src="portfolio.jpg" alt="Project 1">
+        <h3>Portfolio Website</h3>
+        <p>A responsive personal portfolio to showcase my skills and work.</p>
+      </div>
+      <div class="project-card">
+        <img src="gym fittness.jpg" alt="Project 2">
+        <h3>Gym Fitness</h3>
+        <p>A gym fitness login of user and contact to admin or gym master.mainting body with food for gain or loose the weight</p>
+      </div>
+      <div class="project-card">
+        <img src="population census.jpg" alt="Project 3">
+        <h3>Online Census of the population</h3>
+        <p>A User & Admin login with login data updates.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="resume" class="resume">
+    <h2>Resume</h2>
+    <a href="devaraj resume.pdf" download>Download Resume</a>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2>Contact Me</h2>
+    <p>Email: devarajkakkali0510@gmail.com</p>
+    <p>Phone: +91 93804 15883</p>
+    <p>Linkdien:https://www.linkedin.com/in/devaraj-sudhir-kakkali-2979aa2a8</p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Devaraj Kakkali | All Rights Reserved</p>
+  </footer>
+
+</body>
+</html>
